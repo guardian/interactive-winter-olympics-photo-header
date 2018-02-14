@@ -1,0 +1,328 @@
+@import "mq";
+@import "fonts";
+@import "palette";
+// Uncomment for embeds
+//@import "embed";
+// Uncomment for full screen (including immersive article main media)
+//@import "fullscreen";
+.element-atom,
+.interactive-atom {
+    margin: 0 !important;
+}
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+.header-wrapper {
+    height: 250vh;
+    @include mq($until: tablet) {
+        height: 300vh;
+    }
+    width: 100vw;
+    margin-left: calc((-100vw + 100% + 0px)/2);
+    .ios &,
+    .android & {
+        margin-left: calc((-100vw + 100% + 0px)/2);
+    }
+
+    @include mq(tablet, desktop) {
+        margin-left: -97px;
+    }
+
+    @include mq(desktop, leftCol) {
+        margin-left: -40px;
+    }
+}
+
+.header-panes {
+    // margin-top: 100px;
+    // position: sticky;
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+.header-content {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.header-pane {
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-color: #131313;
+    background-position: center center;
+    z-index: 200;
+    background-image: url("https://media.guim.co.uk/1dd225f3e7107407ef3b5e2d2ed2b6e159f49843/72_0_1740_1044/1740.jpg");
+    @include mq($until: tablet) {
+        background-image: url("https://media.guim.co.uk/161021e546450b37d02ab86f44c66d766efc4f71/533_0_597_1046/597.jpg");
+    }
+    &.header-pane--1 {
+        z-index: 20;
+        transition: opacity 2s ease-in-out;
+    }
+    &.header-pane--2 {
+        background-image: url("https://media.guim.co.uk/005e2b058cb3d673c4e2c31ac63032b500144094/72_0_1740_1044/1740.jpg");
+        z-index: 10;
+        @include mq($until: tablet) {
+            background-image: url("https://media.guim.co.uk/d3cba54ca78fe91c98c12bc3fadbfe0d5696e6ce/533_0_597_1046/597.jpg");
+        }
+    }
+}
+
+.transition {
+    .header-pane--1 {
+        opacity: 0;
+    }
+}
+
+.header-content-pane {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    z-index: 30000;
+    &.header-content-pane--2 {
+        top: 125vh;
+        @include mq($until: tablet) {
+            height: 150vh;
+        }
+    }
+    &.header-content-pane--1 {
+        .int-copy {
+            // transform: translateY(100vh);
+        }
+    }
+}
+
+.content__head,
+.content__meta-container {
+    display: none;
+}
+
+.headline-block {
+    background-color: #131313;
+    width: 100vw;
+    position: absolute;
+    left: calc((100vw - 1300px)/2 + 240px);
+    padding: 48px 10px 12px;
+    @include mq($until: tablet) {
+        padding-top: 6px;
+    }
+    span {
+        @include fs-header(5);
+        font-weight: 700;
+        font-size: 50px;
+        line-height: 54px;
+        color: #fff;
+        display: block;
+        max-width: 620px;
+        padding-right: 20px;
+            display: block;
+            color: #1896D7;
+
+        @include mq($until: tablet) {
+            font-size: 32px;
+            line-height: 36px;
+        }
+    }
+    h1 {
+        @include fs-header(5);
+        font-weight: 700;
+        font-size: 50px;
+        line-height: 54px;
+        color: #fff;
+        display: block;
+        max-width: 620px;
+        padding-right: 20px;
+        span {
+            display: block;
+            color: #1896D7;
+        }
+        @include mq($until: tablet) {
+            font-size: 32px;
+            line-height: 36px;
+        }
+    }
+    left: 0;
+    @include mq(tablet) {
+        left: calc((100vw - 700px)/2 + 0px);
+    }
+    @include mq(desktop) {
+        left: calc((100vw - 940px)/2 + 0px);
+    }
+    @include mq(leftCol) {
+        left: calc((100vw - 1140px)/2 + 160px);
+    }
+    @include mq(wide) {
+        left: calc((100vw - 1300px)/2 + 240px);
+    }
+}
+
+.inner {
+    margin: auto;
+    @include mq(tablet) {
+        width: 740px;
+    }
+    @include mq(desktop) {
+        width: 980px;
+    }
+    @include mq(leftCol) {
+        width: 1140px;
+    }
+    @include mq(wide) {
+        width: 1300px;
+    }
+}
+
+.int-copy {
+    max-width: 620px;
+    margin-right: 40px;
+    font-family: "Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+    font-weight: 600;
+    transform: translateY(-75%);
+    margin-left: 10px;
+    font-size: 16px;
+    line-height: 22px;
+    margin-top: calc(100vh - 20px - 24px) !important;
+    @include mq(tablet) {
+        transform: translateY(-25%);
+        margin-left: 20px;
+        font-size: 24px;
+        line-height: 28px;
+    }
+    @include mq(leftCol) {
+        margin-left: 160px;
+        margin-top: calc(100vh - 20px - 200px) !important;
+    }
+    @include mq(wide) {
+        margin-left: 240px;
+    }
+    // .text {
+    //     position: relative;
+    //     &::before {
+    //         content: '';
+    //         display: block;
+    //         position: absolute;
+    //         width: 100%;
+    //         height: 100%;
+    //         top: 5px;
+    //         left: 5px;
+    //         background-color: #ed6300;
+    //     }
+    // }
+    // .text-inner {
+    //     background-color: #fff;
+    //     color: #000;
+    //     padding: 6px 10px 12px 10px;
+    //     position: relative;
+    //     z-index: 10;
+    //     border: 2px solid #000;
+    //     box-sizing: border-box;
+    // }
+    .text-inner {
+        display: inline;
+        background-color: #131313;
+        color: #fff;
+        padding: 5px 5px 5px 5px;
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+        line-height: 31px;
+        @include mq(tablet) {
+            line-height: 41px;
+        }
+        &::before {
+            content: '';
+            display: inline-block;
+            width: 3px;
+            height: 31px;
+            background-color: #1896D7;
+            transform: translate(-4px, 8px);
+            @include mq(tablet) {
+                width: 4px;
+                height: 40px;
+                margin-right: 5px;
+                transform: translate(-4px, 11px);
+            }
+        }
+    }
+}
+
+//page hacks
+.l-side-margins:after,
+.l-side-margins:before {
+    background-color: transparent !important;
+}
+
+.content__main-column.content__main-column--interactive::before {
+    @include mq(leftCol) {
+        content: '';
+        border-left: 1px solid #dcdcdc;
+        position: absolute;
+        left: 150px;
+        height: 100%;
+    }
+    @include mq(wide) {
+        left: 230px;
+    }
+}
+
+.content--interactive:not(.paid-content) .element-interactive {
+    background-color: transparent !important;
+}
+
+.content__main-column--interactive p:nth-of-type(2):first-letter {
+    font-size: 114px;
+    line-height: 90px;
+    margin-right: 10px;
+    font-family: "Guardian Headline", "Guardian Egyptian Web", "Guardian Text Egyptian Web", Georgia, serif;
+    font-weight: 900;
+    float: left;
+    color: #1896D7;
+}
+
+.content__main-column--interactive p:first-of-type {
+    margin-bottom: 12px;
+    @include mq(leftCol) {
+        border-bottom: 1px solid #dcdcdc;
+        margin-left: 150px !important;
+        margin-bottom: 36px;
+    }
+    @include mq(wide) {
+        margin-left: 230px !important;
+    }
+    padding-left: 10px;
+    padding-bottom: 6px;
+}
+
+#article .content__main-column--interactive .element--immersive.element-atom {
+    margin-bottom: 12px !important;
+}
+
+.ios,
+.android {
+    .element-atom {
+        position: relative !important;
+    }
+    .article__header {
+        display: none !important;
+    }
+    // .article--standard .article__body {
+    //     padding: 0 !important;
+    // }
+}
+
+.content__main-column {
+    a,
+    .u-fauxlink {
+        color: #1896D7 !important;
+    }
+}
