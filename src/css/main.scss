@@ -19,7 +19,9 @@ header nav {
     z-index: 99999;
 }
 
-
+.article__body {
+    padding: 0!important; // fix for whitespace around header in app
+}
 
 .header-wrapper {
     width: 100%;
