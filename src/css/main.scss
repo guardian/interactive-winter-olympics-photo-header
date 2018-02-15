@@ -75,6 +75,17 @@ header nav {
         z-index: 4;
         clear: both;
         pointer-events: none;
+         @media only screen and (min-width: 480px) {
+              left: -100px;; //margin-left: 0;
+               
+            }
+
+         @include mq(desktop) {
+              background-size: 38%;
+                left: -120px;
+                 background-position: 50% 32%;
+        }
+
          @include mq(leftCol) {
             height: 790px;
              background-size: 32%;
@@ -90,18 +101,26 @@ header nav {
 
         @include mq(leftCol) {
      
-        width: 230px;
+        width: 140px;
         float: left;
+        }
+
+        @include mq(wide) {
+     
+        width: 230px;
         }
     }
 
     .right-col {
         position: relative;
         @include mq(leftCol) {
-        width: calc(100% - 230px);
+        width: calc(100% - 150px);
         float: right;
         border-left: 1px solid #121212;
         height: 100%;
+        }
+         @include mq(wide) {
+        width: calc(100% - 230px);
         }
     }
 
@@ -117,7 +136,7 @@ header nav {
             background-position: 0 0;
             width: 130px;
             height: 70px;
-            @include mq(leftCol) {
+            @include mq(wide) {
             width: 190px;
             height: 90px;
 
@@ -133,6 +152,11 @@ header nav {
 
          @include mq(leftCol) {
              bottom: 0;
+              width: 140px;
+        }
+
+         @include mq(wide) {
+             width: 220px;
         }
 
 
@@ -195,6 +219,12 @@ header nav {
         margin-left: -115px;
         z-index: 1;
         overflow: hidden;
+         @include mq(desktop) {
+             width: 300px;
+        height: 300px;
+        margin-left: -150px;
+         top: 50px;
+        }
          @include mq(leftCol) {
             top: 0;
             left: 60px;
@@ -218,16 +248,16 @@ header nav {
         }
     }
 
-    .header-image {
-        position: absolute;
-        width: 100%;
-        padding-bottom: 45%;
-        background-image: url('<%= path %>/assets/imgs/snowboarder.png');
-        background-repeat: no-repeat;
-        background-size: 100%;
-        background-position: 0 0;
-        z-index: 2;
-    }
+    // .header-image {
+    //     position: absolute;
+    //     width: 100%;
+    //     padding-bottom: 45%;
+    //     background-image: url('<%= path %>/assets/imgs/snowboarder.png');
+    //     background-repeat: no-repeat;
+    //     background-size: 100%;
+    //     background-position: 0 0;
+    //     z-index: 2;
+    // }
 
     .header-text {
 
@@ -235,7 +265,7 @@ header nav {
         left: 0;
         top: 360px;
           @include mq(leftCol) {
-                top: 517px;
+                top: 515px;
             }
         
 
@@ -244,10 +274,21 @@ header nav {
             font-family: 'Guardian Headline', 'Guardian Egyptian Web', Georgia, serif;
             color: #fff;
             margin-left: -10px;
-            font-size: 32px;
-            line-height: 33px; //margin-bottom: 20px;
+            font-size: 28px;
+            line-height: 30px; //margin-bottom: 20px;
             padding: 0; // box-shadow: 10px 0 0 #1896d7, -10px 0 0 #1896d7;
             // box-decoration-break: clone;
+
+            @media only screen and (min-width: 340px) {
+                font-size: 32px;
+                line-height: 33px;
+            }
+
+             @media only screen and (min-width: 480px) {
+               margin-left: 0;
+            }
+
+
             span {
                 display: inline-block;
                 padding: 0 10px 5px 10px;
@@ -259,7 +300,7 @@ header nav {
             @include mq(leftCol) {
 
                 font-size: 50px;
-                line-height: 62px;
+                line-height: 55px;
                 margin-left: 0;
             }
         }
