@@ -15,13 +15,21 @@ body {
     overflow-x: hidden;
 }
 
+header nav {
+    z-index: 99999;
+}
+
 
 
 .header-wrapper {
     width: 100%;
     background-color: #ffe500;
-    height: 790px;
+    height: 640px;
     position: relative;
+    //visibility: hidden;
+    @include mq(leftCol) {
+            height: 790px;
+        }
 
     &:before {
         position: absolute;
@@ -31,33 +39,38 @@ body {
         content: "";
         display: block;
         width: 300%;
-        height: 790px;
+        height: 640px;
         background-color: #ffe500; // background-image: url('<%= path %>/assets/imgs/snowboarder.png');
         //     background-repeat: no-repeat;
         //     background-size: 36%;
         //     background-position: center center;
-        z-index: 0;
+        z-index: -5;
         clear: both;
+        @include mq(leftCol) {
+            height: 790px;
+        }
     }
 
     &:after {
         position: absolute;
         top: 0;
-        left: 0;
+        left: 60px;
         margin-left: -100%;
         content: "";
         display: block;
         width: 300%;
-        height: 790px;
+        height: 640px;
         background-image: url('<%= path %>/assets/imgs/snowboarder.png');
         background-repeat: no-repeat;
-        background-size: 800px;
-        background-position: 75% 35%;
+        background-size: 850px;
+        background-position: 50% 37%;
         z-index: 4;
         clear: both;
          @include mq(leftCol) {
-            background-size: 34%;
-            background-position: 49.5% 35%;
+            height: 790px;
+             background-size: 32%;
+             left: -75px;
+            background-position: 50% 33%;
         }
     }
 
@@ -107,7 +120,11 @@ body {
         position: absolute;
         width: 220px;
         height: 70px;
-        bottom: 0;
+        bottom: 44px;
+
+         @include mq(leftCol) {
+             bottom: 0;
+        }
 
 
         .header-share-container {
@@ -162,7 +179,7 @@ body {
 
     .white-disc {
         position: absolute;
-        top: 100px;
+        top: 72px;
         left: 50%;
         width: 230px;
         height: 230px;
@@ -219,7 +236,7 @@ body {
             color: #fff;
             margin-left: -10px;
             font-size: 32px;
-            line-height: 39px; //margin-bottom: 20px;
+            line-height: 33px; //margin-bottom: 20px;
             padding: 0; // box-shadow: 10px 0 0 #1896d7, -10px 0 0 #1896d7;
             // box-decoration-break: clone;
             span {
@@ -241,12 +258,16 @@ body {
         h2 {
             font-family: 'Guardian Headline', 'Guardian Egyptian Web', Georgia, serif;
             font-weight: 300;
-            font-size: 20px;
+            font-size: 18px;
             
             margin-top: 20px;
-            line-height: 24px;
+            line-height: 22px;
              @include mq(leftCol) {
                 margin-left: 10px;
+                line-height: 24px;
+                 font-size: 20px;
+            
+
             }
         }
     } // height: 250vh;
