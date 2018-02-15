@@ -21,12 +21,18 @@ header nav {
 
 .article__body {
     padding: 0!important; // fix for whitespace around header in app
+    .header-wrapper {
+    padding: 0 10px!important;
+    }
+
+
 }
 
 .header-wrapper {
-    width: 100%;
+    //width: 100%;
     background-color: #ffe500;
     height: 640px;
+    padding: 0;
     position: relative;
     //visibility: hidden;
     @include mq(leftCol) {
