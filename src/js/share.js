@@ -6,6 +6,8 @@ const googleBaseUrl = 'https://plus.google.com/share?url=';
 export default function share(title, shareURL, hashTag, fbImg, twImg) {
     var twImgText = twImg ? ` ${twImg.trim()} ` : '';
     var fbImgQry = fbImg ? `&picture=${encodeURIComponent(fbImg)}` : '';
+
+
     
     return function (network, extra='') {
         var twitterMessage = `${extra}${title}${twImgText}${hashTag}`;
@@ -20,6 +22,7 @@ export default function share(title, shareURL, hashTag, fbImg, twImg) {
         } else if (network === 'google') {
             shareWindow = googleBaseUrl + shareURL;
         }
+        //console.log(shareWindow + " " + network);
 
         window.open(shareWindow, network + 'share', 'width=640,height=320');
     }

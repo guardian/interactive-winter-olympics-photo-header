@@ -19,6 +19,25 @@ header nav {
     z-index: 99999;
 }
 
+// ios fixes
+
+.ios {
+        .share-block {
+            display: none!important;
+        }
+
+        .header-wrapper, .header-wrapper:before, .header-wrapper:after {
+            height: 580px;
+
+            @include mq(leftCol) {
+            height: 730px;
+            }
+
+        }
+
+
+}
+
 .article__body {
     padding: 0!important; // fix for whitespace around header in app
     .header-wrapper {
@@ -143,6 +162,8 @@ header nav {
             }
         }
     }
+
+
 
     .share-block {
         position: absolute;
